@@ -26,6 +26,15 @@ export default defineConfig([
   ...pluginVue.configs['flat/essential'],
 
   {
+    name: 'app/vue-block-order',
+    files: ['**/*.vue'],
+    // In jeder Komponente steht erst das Template, dann <script setup>
+    rules: {
+      'vue/block-order': ['error', { order: ['template', 'script', 'style'] }],
+    },
+  },
+
+  {
     ...pluginVitest.configs.recommended,
     files: ['src/**/__tests__/*'],
   },

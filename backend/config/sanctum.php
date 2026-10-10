@@ -37,7 +37,8 @@ return [
     |
     */
 
-    'guard' => ['web'],
+    // Nur Bearer-Token, keine Session-Cookies: die SPA authentifiziert sich wie jeder andere Client
+    'guard' => [],
 
     /*
     |--------------------------------------------------------------------------
@@ -50,7 +51,7 @@ return [
     |
     */
 
-    'expiration' => env('SANCTUM_EXPIRATION'),
+    'expiration' => env('SANCTUM_EXPIRATION') ? (int) env('SANCTUM_EXPIRATION') : null,
 
     /*
     |--------------------------------------------------------------------------

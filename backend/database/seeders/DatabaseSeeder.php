@@ -15,11 +15,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Demo-Konten der fiktiven Agentur, je eins pro Rolle (Passwort: "password")
+        User::factory()->admin()->create([
+            'name' => 'Anna Admin',
+            'email' => 'admin@teambrain.test',
+        ]);
+
+        User::factory()->collectionAdmin()->create([
+            'name' => 'Henrik HR',
+            'email' => 'hr@teambrain.test',
+        ]);
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Erik Employee',
+            'email' => 'employee@teambrain.test',
         ]);
     }
 }
